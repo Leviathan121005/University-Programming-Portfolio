@@ -1,0 +1,16 @@
+* installing *source* package ‘BinarySVMXHT’ ...
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+Warning: /Users/Leviathan/Downloads/STA3005/BinarySVMXHT/man/BinarySVMXHT.Rd:8: unexpected TEXT ' ', expecting '{'
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+Error: package or namespace load failed for ‘BinarySVMXHT’ in namespaceExport(ns, exports):
+ undefined exports: tune_parameter
+Error: loading failed
+Execution halted
+ERROR: loading failed
+* removing ‘/Users/Leviathan/Downloads/STA3005/BinarySVMXHT/..Rcheck/BinarySVMXHT’

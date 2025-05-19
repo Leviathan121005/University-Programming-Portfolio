@@ -1,0 +1,2 @@
+"0","dataset = dataset[, -which(names(dataset) %in% c(""id"", ""Profession"", ""Job.Satisfaction"", ""Work.Pressure""))]"
+"0",""

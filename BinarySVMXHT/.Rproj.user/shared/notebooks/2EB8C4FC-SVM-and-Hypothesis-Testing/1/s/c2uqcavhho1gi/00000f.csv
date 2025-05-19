@@ -1,0 +1,6 @@
+"0","knitr::opts_chunk$set(collapse = TRUE, comment = ""#>"", cache = FALSE, "
+"0","                      autodep = FALSE, cache.comments = FALSE,"
+"0","                      fig.width = 8, fig.height = 5)"
+"0",""
+"0","suppressPackageStartupMessages(library(BinarySVMXHT))"
+"0",""
