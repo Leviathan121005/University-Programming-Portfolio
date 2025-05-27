@@ -25,12 +25,12 @@ Gameplay:
 
 Controls:
 
-## 3. Terminal Chat Room
+## 3. Terminal Chatroom
 
 
 Language: Java
 
-Description: 
+Description: A local server and client terminal chatroom with named users, simple search, and message history. 
 
 How to run:
 - Open this repository in a codespace.
