@@ -1,0 +1,3 @@
+Server: Bob has entered the chat!    27-05-2025 20:23:41
+Server: Thanos has entered the chat!    27-05-2025 20:24:23
+Thanos: Hello bob    27-05-2025 20:24:30 1 messages(s)

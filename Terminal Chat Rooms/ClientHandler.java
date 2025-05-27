@@ -19,7 +19,7 @@ public class ClientHandler implements Runnable {
         this.writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
         this.clientUsername = reader.readLine();
         // Create writer to write into .txt file
-        this.fileWriter = new BufferedWriter(new FileWriter("/Users/Leviathan/IdeaProjects/Java Chat Rooms/src/chatStorage/" + filename, true));
+        this.fileWriter = new BufferedWriter(new FileWriter("chatStorage/" + filename, true));
         // Counts the amount of message sent by Client
         this.count = 0;
         clientHandlers.add(this);
