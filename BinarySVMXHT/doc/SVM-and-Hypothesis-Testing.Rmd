@@ -1,0 +1,235 @@
+---
+title: "BinarySVMXHT: Create Support Vector Machine (SVM) Binary Classification Model with Hypothesis Testing Validation"
+author: "Vincent, Boer <123040049@link.cuhk.edu.cn> and Adrian, Kristanto <123040001@link.cuhk.edu.cn>"
+output: 
+  rmarkdown::html_vignette:
+    includes:
+      in_header: style.html
+vignette: >
+  %\VignetteIndexEntry{BinarySVMXHT: Create Support Vector Machine (SVM) Binary Classification Model with Hypothesis Testing Validation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", cache = FALSE, 
+                      autodep = FALSE, cache.comments = FALSE,
+                      fig.width = 8, fig.height = 5)
+
+suppressPackageStartupMessages(library(BinarySVMXHT))
+
+```
+
+---
+
+## Setup
+
+In this documentation, the "StudentDepressionDataset.csv" will be used to provide demonstrations of the functions. First, let's have a look at the dataset.
+
+```{r 1, include = TRUE}
+library(BinarySVMXHT)
+
+dataset = student_depression_dataset
+names(dataset)
+head(dataset, 6)
+
+```
+
+The dataset has 17 columns, consisting of 1 ID column, 15 feature columns, and 1 label column. The id column can be ignored. The feature columns consist of numeric and character data. The numeric data further consists of discrete and continuous values. The "depression" column is the label column denoted with 0 and 1, implying whether an individual has depression or not. The goal here is to create a model to determine if an individual has depression by using data from the feature columns.
+
+## Data Preprocessing
+
+Before data preprocessing, it is helpful to have a look at the distribution of the data to understand the data and decide which features are useful in creating a model. The `plot_hist` function can be used to plot the histogram of feature columns in the data. For example:
+
+```{r 2, include = TRUE}
+plot_hist(dataset, "Gender")
+plot_hist(dataset, "Age")
+plot_hist(dataset, "City")
+
+```
+
+Or if all feature columns needed to be plot:
+
+```{r 3, eval = FALSE}
+lapply(names(dataset), function(x) {
+  plot_hist(dataset, x)
+})
+
+```
+
+After looking at the data overview, we can begin to process the data. Feature columns with no variety such as "Profession", "Job.Satisfaction", and "Work.Pressure" can be removed manually. The same goes for the "id" column which is irrelevant to the label.
+
+```{r 4, include = TRUE}
+dataset = dataset[, -which(names(dataset) %in% c("id", "Profession", "Job.Satisfaction", "Work.Pressure"))]
+
+```
+
+Now we are left with 13 columns. Currently, the dataset has character features which cannot be used in SVM. However, it is ignorant to simply remove all these columns. To solve this, we can map some of the character feature columns to numeric feature columns. Notice that some of the character feature columns such as "Sleep.Duration" and "Dietary.Habits" have values which can be scaled in a logical sense to numeric. Similarly, "Have.you.ever.had.suicidal.thoughts.." is binary. To convert these character columns, we create a list that consist of logical orders of the character feature column values. The `preprocess` function will then map these character values to their index order in the list as their new representation. Other than converting character columns to numeric, the label column also need to be converted from binary 0 and 1, to -1 and 1 for SVM purpose. This can also be done in the `preprocess` function by providing the label column name or index.
+
+```{r 5, include = TRUE}
+# Create a list which maps the character feature columns to numeric.
+mapping = list(Gender = c("Female", "Male"),
+                 Sleep.Duration = c("Less than 5 hours", "5-6 hours", "7-8 hours", "More than 8 hours", "Others"),
+                 Dietary.Habits = c("Unhealthy", "Moderate", "Healthy"),
+                 Have.you.ever.had.suicidal.thoughts.. = c("No", "Yes"),
+                 Family.History.of.Mental.Illness = c("No", "Yes"))
+
+dataset = preprocess(dataset, mapping, "Depression")
+
+head(dataset, 6)
+
+```
+
+The `preprocess` function automatically removes any rows with NA values and columns with unconverted character values for simplicity. It also name unnamed columns, as column names will be needed for some later functions. With the dataset now consist of only numeric feature columns and -1 and 1 label, it can now be used to train SVM models.
+
+## SVM Model Training
+
+The `svm` function takes numeric features and label data, and returns a list of values which represents the SVM model.
+
+```{r 6, include = TRUE}
+data = dataset[, 1:11]
+label = dataset[, 12]
+linear.model = svm(data[1:250, ], label[1:250])
+linear.model
+
+```
+
+We can also decide to use random index of the data and choose feature columns for the model.
+
+```{r 7, include = TRUE}
+linear.model.partial = svm(data, label, n = 250, features = names(data)[1:8])
+linear.model.partial
+
+```
+
+In addition to linear SVM, polynomial and rbf kernels are also supported in the `svm` function. 
+
+```{r 8, include = TRUE}
+poly.model = svm(data, label, type = "polynomial", n = 250)
+
+rbf.model = svm(data, label, type = "rbf", n = 250)
+
+```
+
+## Prediction and Accuracy Test
+
+The models can be used to predict new data using the `predict` function. The accuracy of the prediction can be directly evaluted using the `test_accuracy` function.
+
+```{r 9, include = TRUE}
+random.test.index = sample(1:nrow(data), size = 250, replace = FALSE)
+
+predict(linear.model, data[random.test.index, ])
+test_accuracy(linear.model, data[random.test.index, ], label[random.test.index])
+
+predict(linear.model.partial, data[random.test.index, ])
+test_accuracy(linear.model.partial, data[random.test.index, ], label[random.test.index])
+
+predict(poly.model, data[random.test.index, ])
+test_accuracy(poly.model, data[random.test.index, ], label[random.test.index])
+
+predict(rbf.model, data[random.test.index, ])
+test_accuracy(rbf.model, data[random.test.index, ], label[random.test.index])
+
+```
+
+## Feature Selection
+
+In this example dataset, the number of features is small. However, in other datasets, number of features can be very large that feature selection should be done to improve model's effectiveness and efficiency. This package provide `select_features` function to choose top "n" features if "n" is given, or all meaningful features where a feature is considered meaningful if it's absolute correlation to the label is above some "min" value between 0 and 1.
+
+```{r 10, include = TRUE}
+select_features(data, label, n =  8, show = TRUE)
+select_features(data, label, min = 0.2)
+
+```
+
+## Parameter Tuning
+
+The parameters for these kernels and the regularization parameter of the SVM can also be adjusted to improve the model. To choose the best parameter for a model, we can use the `tune_parameters` function which compares the performance of a model with different parameters.
+
+```{r 11, include = TRUE}
+random.train.index = sample(1:nrow(data), size = 250, replace = FALSE)
+
+tune_parameters(data[random.train.index, ], label[random.train.index], 
+               data[random.test.index, ], label[random.test.index], type = "linear", C = c(1, 10, 100))
+
+tune_parameters(data[random.train.index, ], label[random.train.index], 
+               data[random.test.index, ], label[random.test.index], type = "polynomial", C = c(1, 10, 100), degree = c(2, 3))
+
+tune_parameters(data[random.train.index, ], label[random.train.index], 
+               data[random.test.index, ], label[random.test.index], type = "rbf", C = c(1, 10, 100), gamma = c(0.05, 0.1, 0.2))
+
+```
+
+Now that we have compared the parameters, we can retrain the model using more suitable parameters for better accuracy (while not always).
+
+```{r 12, include = TRUE}
+random.test.index.2 = sample(1:nrow(data), size = 250, replace = FALSE)
+
+linear.model.tuned = svm(data, label, type = "linear", n = 250, C = 10)
+test_accuracy(linear.model.tuned, data[random.test.index.2, ], label[random.test.index.2])
+
+poly.model.tuned = svm(data, label, type = "polynomial", n = 250, degree = 3)
+test_accuracy(poly.model.tuned, data[random.test.index.2, ], label[random.test.index.2])
+
+rbf.model.tuned = svm(data, label, type = "rbf", n = 250, C = 1, gamma = 0.2)
+test_accuracy(rbf.model.tuned, data[random.test.index.2, ], label[random.test.index.2])
+
+```
+
+From the results, we can see that both rbf and linear models perform better compared to polynomial models. Thus, we will continue to evaluate the linear and rbf models.
+
+
+## Model Evaluation
+
+We can evaluate the accuracy of a model to an expected accuracy using hypothesis testing. For example, we want to check if "linear.model.tuned" actually has accuracy of above 80%. We can use the `hypo_test` function to evaluate this using Z-test or likelihood ratio test (LRT).
+
+```{r 13, include = TRUE}
+linear.model.z.test = hypo_test(linear.model.tuned, data[random.test.index.2, ], label[random.test.index.2], 0.80, alternative = "greater", method = "z")
+linear.model.lrt = hypo_test(linear.model.tuned, data[random.test.index.2, ], label[random.test.index.2], 0.80, alternative = "greater", method = "lrt")
+linear.model.z.test$status
+linear.model.lrt$status
+
+rbf.model.z.test = hypo_test(rbf.model.tuned, data[random.test.index.2, ], label[random.test.index.2], 0.80, alternative = "greater", method = "z")
+rbf.model.lrt = hypo_test(rbf.model.tuned, data[random.test.index.2, ], label[random.test.index.2], 0.80, alternative = "greater", method = "lrt")
+rbf.model.z.test$status
+rbf.model.lrt$status
+
+```
+
+If one of the tests reject the null hypothesis, there is enough evidence that the model has accuracy of above 80%. In contrast, if both tests fails to reject the null hypothesis, there is not enough evidence that the model has accuracy of above 80%. To help understanding the test, we can plot the hypothesis testing results using `visualize_ht`. For Z-test, we can also plot the power function (1 - type II error) with respect to the possible true alternatives.
+
+```{r 14, include = TRUE}
+visualize_ht(linear.model.z.test)
+visualize_ht(linear.model.z.test, type = "II")
+visualize_ht(linear.model.lrt)
+visualize_ht(rbf.model.z.test)
+visualize_ht(rbf.model.z.test, type = "II")
+visualize_ht(rbf.model.lrt)
+
+```
+
+## Advantages of this Package
+
+- This is a beginner friendly package for those who want to learn data science. The documentation walk through a step-by-step workflow of support vector machine (SVM), but on a lower level compared to widely used package that handles everything automatically. Functions such as `plot_hist`, `tune_parameters`, and `visualize_ht` are included not for functionality, but to help users comprehend the underlying processes. The names for functions and variables in this package are made straightforward for easy understanding. 
+
+- This package highlights the connection between topics in data science: hypothesis testing from statistics, SVM from machine learning, and statistical computing.
+
+- Beyond the current functionality, this package is a solid foundation for future development. It can also be used as a building block for other R packages with learning-directed purposes.
+
+## Learning Points
+
+- Learned to use base R functions such as the `apply` family functions which are more efficient compared to conventional for loops usually used in other programming languages.
+
+- Understood the importance and benefit of data wrangling, exploration, and visualization before processing and utilizing data for various purposes, as is done frequently in the assignments.
+
+- Practiced being meticulous in programming, considering and preventing possible errors for better usability of functions.
+
+- Compared different methods and approach to reach the same result effectively and efficiently.
+
+- Became familiar with the workflow of R package development from DESCRIPTION, R code, Roxygen comments documentation, vignettes, and automated testings.
+
+- Applied and combined knowledge from statistics and machine learning in practical ways.
+
+- Wrapped up functions in another function to obtain interesting results and improve readability.
+
+
