@@ -17,6 +17,9 @@ How to run:
 Language: Java
 
 How to run: 
+- Open this repository in a codespace.
+- Type `cd "Gomoku Game"` in the terminal window to change the directory.
+- Continue typing `java --module-path javafx-sdk-21.0.7/lib --add-modules javafx.controls,javafx.fxml GomokuGameFX` to start the game.
 
 Gameplay:
 
@@ -30,6 +33,10 @@ Language: Java
 Description: 
 
 How to run:
+- Open this repository in a codespace.
+- Type `cd "Terminal Chat Room"` in the terminal window to change the directory.
+- Continue typing `java Server` to start a server.
+- Open a new terminal and type `java Client` to enter a new user. Repeat this step to enter more users.
 
 ## 4. Snake Game
 
@@ -37,6 +44,9 @@ How to run:
 Language: Python
 
 How to run:
+- Open this repository in a codespace.
+- Type `cd "Snake Game"` in the terminal window to change the directory.
+- Continue typing `python3 snake_game.py` to start the game.
 
 Gameplay:
 
