@@ -11,15 +11,17 @@ How to run:
 - In an R codespace, type `install.packages("path/to/BinaryXSVMHT_0.1.0.tar.gz", repos = NULL, type = "source")` in the console.
 - Continue typing `library(BinaryXSVMHT)` in the R console to load the functions in the package to your R environment.
 
-## 2. Gomoku (Five in a Row) Game
+## 2. Gomoku Game
 <p  align = "center">
   <img alt = "Gomoku Game Preview" src = "/Gomoku Game/Gomoku Game Preview.png" width = "85%">
 </p> 
 
 Language: Java
 
+Description: 
+
 How to run: 
-- Open this repository in a codespace.
+- Open this repository in Visual Studio Code codespace.
 - Type `cd "Gomoku Game"` in the terminal window to change the directory.
 - Continue typing `java --module-path javafx-sdk-21.0.7/lib --add-modules javafx.controls,javafx.fxml GomokuGameFX` to start the game.
 
@@ -52,12 +54,16 @@ How to run:
 
 Language: Python
 
+Description: 
+
 How to run:
 - Open this repository in a codespace.
 - Type `cd "Snake Game"` in the terminal window to change the directory.
 - Continue typing `python3 snake_game.py` to start the game.
 
 Gameplay:
+
+Controls:
 
 Controls:
 
