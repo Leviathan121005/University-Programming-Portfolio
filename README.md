@@ -25,6 +25,8 @@ Gameplay:
 
 Controls:
 
+[Demo Video](https://cuhko365-my.sharepoint.com/:v:/g/personal/123040049_link_cuhk_edu_cn/Eb8E0xMNnn9Av40JbP5aJaQBZs2wf7yCM6HO7c-o8Zk8Dg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=vOBJMz)
+
 ## 3. Terminal Chatroom
 
 
@@ -37,6 +39,8 @@ How to run:
 - Type `cd "Terminal Chat Room"` in the terminal window to change the directory.
 - Continue typing `java Server` to start a server.
 - Open a new terminal and type `java Client` to enter a new user. Repeat this step to enter more users.
+
+[Demo Video](https://cuhko365-my.sharepoint.com/:v:/g/personal/123040049_link_cuhk_edu_cn/EexAE8D1BN1Ciw-qQP4RpMMB_4AN8E2-zIXULViNrQ-eDw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=AC6gsD)
 
 ## 4. Snake Game
 
@@ -51,3 +55,5 @@ How to run:
 Gameplay:
 
 Controls:
+
+[Demo Video](https://cuhko365-my.sharepoint.com/:v:/g/personal/123040049_link_cuhk_edu_cn/Ecedo-wTNphJrRHfAywgqEgBktNvXYxGtqFd3vIjHmi8qw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=JrJwzj)
