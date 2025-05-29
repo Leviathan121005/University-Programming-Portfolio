@@ -12,7 +12,9 @@ How to run:
 - Continue typing `library(BinaryXSVMHT)` in the R console to load the functions in the package to your R environment.
 
 ## 2. Gomoku (Five in a Row) Game
-
+<p>
+  <img alt = "Gomoku Game Preview" src = "/Gomoku Game/Gomoku Game Preview.png">
+</p> 
 
 Language: Java
 
@@ -43,6 +45,9 @@ How to run:
 [Demo Video](https://cuhko365-my.sharepoint.com/:v:/g/personal/123040049_link_cuhk_edu_cn/EexAE8D1BN1Ciw-qQP4RpMMB_4AN8E2-zIXULViNrQ-eDw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=AC6gsD)
 
 ## 4. Snake Game
+<p>
+  <img alt = "Snake Game Preview" src = "/Snake Game/Snake Game Preview.png">
+</p> 
 
 
 Language: Python
