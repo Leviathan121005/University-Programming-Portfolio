@@ -34,7 +34,7 @@ Controls:
 
 Language: Java
 
-Description: A local server and client terminal chatroom with named users, simple search, and message history. 
+Description: A local server and client terminal chatroom with simple search and message save. 
 
 How to run:
 - Open this repository in a codespace.
