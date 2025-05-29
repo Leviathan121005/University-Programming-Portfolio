@@ -13,7 +13,7 @@ How to run:
 
 ## 2. Gomoku (Five in a Row) Game
 <p  align = "center">
-  <img alt = "Gomoku Game Preview" src = "/Gomoku Game/Gomoku Game Preview.png" width = "80%">
+  <img alt = "Gomoku Game Preview" src = "/Gomoku Game/Gomoku Game Preview.png" width = "85%">
 </p> 
 
 Language: Java
@@ -46,7 +46,7 @@ How to run:
 
 ## 4. Snake Game
 <p align = "center">
-  <img alt = "Snake Game Preview" src = "/Snake Game/Snake Game Preview.png" width = "80%">
+  <img alt = "Snake Game Preview" src = "/Snake Game/Snake Game Preview.png" width = "85%">
 </p> 
 
 
