@@ -54,17 +54,15 @@ How to run:
 
 Language: Python
 
-Description: 
+Description: A basic mobile snake game
 
 How to run:
 - Open this repository in a codespace.
 - Type `cd "Snake Game"` in the terminal window to change the directory.
 - Continue typing `python3 snake_game.py` to start the game.
 
-Gameplay:
+Gameplay: Navigate the snake around the grid to collect apples. Each apple will increase the score and makes the snake grows longer. The snake will also move faster with time. The game ends when the snake crashes into its own body or the edges of the grid.
 
-Controls:
-
-Controls:
+Controls: Press `←`, `↑`, `→`, and `↑` arrow keys to change movement direction, respectively.
 
 [Demo Video](https://cuhko365-my.sharepoint.com/:v:/g/personal/123040049_link_cuhk_edu_cn/Ecedo-wTNphJrRHfAywgqEgBktNvXYxGtqFd3vIjHmi8qw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=JrJwzj)
