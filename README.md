@@ -11,6 +11,8 @@ How to run:
 - In an R codespace, type `install.packages("path/to/BinaryXSVMHT_0.1.0.tar.gz", repos = NULL, type = "source")` in the console.
 - Continue typing `library(BinaryXSVMHT)` in the R console to load the functions in the package to your R environment.
 
+[Documentation](https://bronze-fay-45.tiiny.site/)
+
 ## 2. Gomoku Game
 <p  align = "center">
   <img alt = "Gomoku Game Preview" src = "/Gomoku Game/Gomoku Game Preview.png" width = "85%">
