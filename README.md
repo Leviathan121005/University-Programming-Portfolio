@@ -2,6 +2,7 @@
 ## 1. BinarySVMXHT
 
 Try making changes
+Change A
 Language: R
 
 Description: An R package that integrates support vector machine (SVM) from machine learning with hypothesis testing from statistics. It follows a structured SVM implementation covering data preprocessing, feature     selection, model training, prediction, and evaluation. Functions for Z-test and likelihood ratio test (LRT) are provided to evaluate the model's accuracy with statistical rigor. Additionally, the distribution of       data and the type I errors from the hypothesis testing can be visualized to help users design the model. For more details and guides on how to use the package, please refer to `BinarySVMXHT/doc/SVM-and-Hypothesis-Testing.html`. 
