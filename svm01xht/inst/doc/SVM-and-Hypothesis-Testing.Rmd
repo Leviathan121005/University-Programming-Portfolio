@@ -213,7 +213,7 @@ rbf.model.lrt$status
 
 ```
 
-If one of the tests reject the null hypothesis, there is enough evidence that the model has accuracy of above 85%. In contrast, if both tests fails to reject the null hypothesis, there is not enough evidence that the model has accuracy of above 80%. To help understanding the test, we can plot the hypothesis testing results using `visualize_ht`. For Z-test, we can also plot the power function (1 - type II error) with respect to the possible true alternatives.
+If one of the tests reject the null hypothesis, there is enough evidence that the model has accuracy of above 85%. In contrast, if both tests fails to reject the null hypothesis, there is not enough evidence that the model has accuracy of above 85%. To help understanding the test, we can plot the hypothesis testing results using `visualize_ht`. For Z-test, we can also plot the power function (1 - type II error) with respect to the possible true alternatives.
 
 ```{r 14, include = TRUE}
 visualize_ht(linear.model.z.test)
