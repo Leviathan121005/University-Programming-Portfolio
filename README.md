@@ -1,16 +1,16 @@
 # University Programming Portfolio
-## 1. svm01xht R Package
+## 1. svm01xht Package
 
 Language: R
 
 Description: An R package that integrates support vector machine (SVM) from machine learning with hypothesis testing from statistics. It follows a structured SVM implementation covering data preprocessing, feature selection, model training, prediction, and evaluation. Functions for Z-test and likelihood ratio test (LRT) are provided to evaluate the model's accuracy with statistical rigor. Additionally, the distribution of data and the type I errors from the hypothesis testing can be visualized to help users understand the tests. For more details and guides on how to use the package, please refer to `svm01xht/inst/doc/SVM-and-Hypothesis-Testing.html`. 
 
 How to run:
-- Download the `svm01xht_0.1.1.tar.gz` in the `BinaryXSVMHT` folder.
+- Download the `svm01xht_0.1.1.tar.gz` in the `svm01xht` folder.
 - In an R codespace, type `install.packages("path/to/svm01xht_0.1.1.tar.gz", repos = NULL, type = "source")` in the console.
 - Continue typing `library(svm01xht)` in the R console to load the functions in the package to your R environment.
 
-[Documentation](https://bronze-fay-45.tiiny.site/)
+[Documentation](https://aquamarine-sibilla-1.tiiny.site)
 
 ## 2. Gomoku Game
 <p  align = "center">
