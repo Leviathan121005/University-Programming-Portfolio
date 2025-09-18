@@ -1,4 +1,0 @@
-"0","poly.model = svm(data, label, type = ""polynomial"", n = 250)"
-"0",""
-"0","rbf.model = svm(data, label, type = ""rbf"", n = 250)"
-"0",""

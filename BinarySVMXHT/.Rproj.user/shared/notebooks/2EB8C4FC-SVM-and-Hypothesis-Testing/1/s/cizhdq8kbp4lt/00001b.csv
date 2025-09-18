@@ -1,4 +1,0 @@
-"0","random.train.index = sample(1:nrow(data), size = 250, replace = FALSE)"
-"0",""
-"0","tune_parameters(data[random.train.index, ], label[random.train.index], "
-"0","               data[random.test.index, ], label[random.test.index], type = ""linear"", C = c(1, 10, 100))"

@@ -1,3 +1,0 @@
-"0",""
-"0","tune_parameters(data[random.train.index, ], label[random.train.index], "
-"0","               data[random.test.index, ], label[random.test.index], type = ""polynomial"", C = c(1, 10, 100), degree = c(2, 3))"
