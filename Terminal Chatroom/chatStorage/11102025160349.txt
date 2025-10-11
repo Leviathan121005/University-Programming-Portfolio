@@ -1,0 +1,2 @@
+Server: Hello has entered the chat!    11-10-2025 16:04:00
+Server: Hello has left the chat!

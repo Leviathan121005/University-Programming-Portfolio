@@ -1,0 +1,8 @@
+Server: P has entered the chat!    11-10-2025 16:02:12
+P: Hello    11-10-2025 16:02:18 1 messages(s)
+P:     11-10-2025 16:02:18 2 messages(s)
+P: Test    11-10-2025 16:02:24 3 messages(s)
+Server: player2 has entered the chat!    11-10-2025 16:02:51
+player2: Whatt    11-10-2025 16:03:01 1 messages(s)
+Server: P has left the chat!
+Server: player2 has left the chat!

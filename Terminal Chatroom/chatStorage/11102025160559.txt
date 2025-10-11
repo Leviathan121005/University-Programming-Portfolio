@@ -1,0 +1,7 @@
+Server: Test has entered the chat!    11-10-2025 16:06:07
+Server: java2 has entered the chat!    11-10-2025 16:06:16
+Server: Test3 has entered the chat!    11-10-2025 16:06:30
+java2:     11-10-2025 16:06:39 1 messages(s)
+Server: java2 has left the chat!
+Server: Test has left the chat!
+Server: Test3 has left the chat!
